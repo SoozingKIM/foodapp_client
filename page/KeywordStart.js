@@ -131,7 +131,7 @@ const stylesForKeyword = StyleSheet.create({
         width:'100%',
         alignItems:'center',
         justifyContent: 'center',
-        opacity:0.3
+        opacity:0.3,
         //backgroundColor:'red',
     },
     block:{
@@ -139,7 +139,7 @@ const stylesForKeyword = StyleSheet.create({
         width:'75%',
         alignItems:'center',
         justifyContent: 'center',
-       // backgroundColor:'blue',
+       //backgroundColor:'blue',
     },
         category:{
             width:'100%',
@@ -170,15 +170,13 @@ const stylesForKeyword = StyleSheet.create({
         justifyContent:'flex-end',
         //backgroundColor:'blue',
     },
-    logo:{
-        // top:327,
+    logo:{  
         bottom:274,
         left:95,
         position:'absolute',
         height:203,
         width:200,
-        //alignItems:'center',
-        //backgroundColor:'blue',
+        //sbackgroundColor:'blue',
     },
     buttonContainer:{
         width:314,

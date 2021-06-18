@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* firstTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* firstTests.m */; };
-		0BDD5C4F2671B2C000FB933F /* SwiftBridege.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BDD5C4E2671B2C000FB933F /* SwiftBridege.swift */; };
+		0BDD5C4F2671B2C000FB933F /* SwiftBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BDD5C4E2671B2C000FB933F /* SwiftBridge.swift */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
@@ -34,7 +34,7 @@
 		0B25810A2664A2EE008B1ECA /* NanumBarunGothic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumBarunGothic.ttf; sourceTree = "<group>"; };
 		0B4274F32664A0CB000AC625 /* ios */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ios; sourceTree = "<group>"; };
 		0BDD5C142671A81C00FB933F /* KakaoOpenSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KakaoOpenSDK.framework; path = "../../../../../../../../../Users/kimsujin/Downloads/KakaoOpenSDK-1/KakaoOpenSDK.framework"; sourceTree = SDKROOT; };
-		0BDD5C4E2671B2C000FB933F /* SwiftBridege.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftBridege.swift; sourceTree = "<group>"; };
+		0BDD5C4E2671B2C000FB933F /* SwiftBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftBridge.swift; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* first.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = first.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = first/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = first/AppDelegate.m; sourceTree = "<group>"; };
@@ -96,7 +96,7 @@
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
-				0BDD5C4E2671B2C000FB933F /* SwiftBridege.swift */,
+				0BDD5C4E2671B2C000FB933F /* SwiftBridge.swift */,
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
 			);
@@ -395,7 +395,7 @@
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
-				0BDD5C4F2671B2C000FB933F /* SwiftBridege.swift in Sources */,
+				0BDD5C4F2671B2C000FB933F /* SwiftBridge.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -484,7 +484,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.first;
 				PRODUCT_NAME = first;
-				SWIFT_OBJC_BRIDGING_HEADER = "first-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = first/AppDelegate.h;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -511,7 +511,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.first;
 				PRODUCT_NAME = first;
-				SWIFT_OBJC_BRIDGING_HEADER = "first-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = first/AppDelegate.h;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
