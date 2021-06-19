@@ -128,7 +128,7 @@ const stylesForLogin = StyleSheet.create({
                 flex: 1,
                 alignItems: 'center',
                 justifyContent:'flex-end',
-               // backgroundColor: 'yellow',
+                backgroundColor: 'yellow',
             },
 });
 

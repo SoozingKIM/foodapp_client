@@ -1,45 +1,54 @@
-import React, { Component, useState, useEffect } from 'react'; 
+import React, { Component, useState, useEffect, useCallback } from 'react'; 
 import { StyleSheet,SafeAreaView, Text, View, Image, StatusBar, } from 'react-native';
 import CustomButton from '../components/CustomButton'
 import BlinkingText from '../components/BlinkText'
 import { useNavigation } from '@react-navigation/native';
 import DropDownPicker from 'react-native-dropdown-picker';
-// import {chooseSex} from './DropDown'
 
 const TutorialPage=()=>{
     const navigation = useNavigation();
     const [isPressed, setIsPressed]=useState(0);
     
-    // const [openSex, setOpen] = useState(false);
-    // const [valueSex, setValue] = useState(null);
-    // const [itemsSex, setItems] = useState([
-    //   {label: '여성', value: 'hi'},
-    //   {label: '남성', value: 'male'},
-    //   {label: '그 외', value: 'other'}
-    // ]);
+    const [openSex, setOpenSex] = useState(false);
+    const [valueSex, setValueSex] = useState(null);
+    const [itemsSex, setItemsSex] = useState([
+      {label: '여성', value: 'hi'},
+      {label: '남성', value: 'male'},
+      {label: '그 외', value: 'other'}
+    ]);   
+    const [openAge, setOpenAge] = useState(false);
+    const [valueAge, setValueAge] = useState(null);
+    const [itemsAge, setItemsAge] = useState([
+      {label: '20대 이하', value: 'teen'},
+      {label: '20~24세', value: 'earlyTwenties'},
+      {label: '25~29세', value: 'lateTwenties'},
+      {label: '30대', value: 'thirties'},
+      {label: '40대', value: 'forties'},
+      {label: '50대', value: 'fifties'},
+      {label: '60대 이상', value: 'sixtiesAbove'},
+    ]);
+    const [openJob, setOpenJob] = useState(false);
+    const [valueJob, setValueJob] = useState(null);
+    const [itemsJob, setItemsJob] = useState([
+      {label: '학생', value: 'student'},
+      {label: '직장인', value: 'officeWorker'},
+      {label: '전업주부', value: 'stayAtHome'},
+      {label: '개인 사업 / 프리랜서', value: 'selfEmployed'},
+      {label: '그 외', value: 'other'},
+    ]);
+    const onSexOpen = useCallback(() => {
+        setOpenSex(false);
+    }, []);
 
-   
-    // const [openAge, setOpen] = useState(false);
-    // const [valueAge, setValue] = useState(null);
-    // const [itemsAge, setItems] = useState([
-    //   {label: '20대 이하', value: 'teen'},
-    //   {label: '20~24세', value: 'earlyTwenties'},
-    //   {label: '25~29세', value: 'lateTwenties'},
-    //   {label: '30대', value: 'thirties'},
-    //   {label: '40대', value: 'forties'},
-    //   {label: '50대', value: 'fifties'},
-    //   {label: '60대 이상', value: 'sixtiesAbove'},
-    // ]);
+    const onAgeOpen = useCallback(() => {
+        setOpenAge(false);
+    }, []);
 
-    // const [openJob, setOpenJob] = useState(false);
-    // const [valueJob, setValueJob] = useState(null);
-    // const [itemsJob, setItemsJob] = useState([
-    //   {label: '학생', value: 'student'},
-    //   {label: '직장인', value: 'officeWorker'},
-    //   {label: '전업주부', value: 'stayAtHome'},
-    //   {label: '개인 사업 / 프리랜서', value: 'selfEmployed'},
-    //   {label: '그 외', value: 'other'},
-    // ]);
+    const onJobOpen = useCallback(() => {
+        setOpenJob(false);
+    }, []);
+
+
 
     if(isPressed==3){ setIsPressed(0)};
     return(
@@ -105,45 +114,68 @@ const TutorialPage=()=>{
     function TutorialPage3(){
         if(isPressed==2){
             return(
-            <View>
+            <View style={{flex:1, width:'100%',paddingHorizontal:'9%'}}>
                 <Text style={stylesForTutorial.text}>빅데이터 기반의 안성맞춤 추천을 위해서</Text>
                 <Text style={stylesForTutorial.text}>몇 가지 주문을 받아볼게.</Text>
-                <View style={{flex:1, justifyContent:'center', backgroundColor:'yellow'}}>
-                    <Text>성별</Text>
-                    
-                </View>
-                 {/* {chooseSex} */}
+                
+                {/* <View style={{flex:1,marginTop:20}}> */}
+                    {/* <View style={stylesForTutorial.textPart}>   */}
+                        <Text style={{fontSize:17}}>성별</Text>  
+                    {/* </View> */}
+                    {/* <View style={stylesForTutorial.selectPart}>
+                    </View> */}
+                {/* </View> */}
                      <DropDownPicker
                         open={openSex}
+                    //    onOpen={onSexOpen}
                         value={valueSex}
                         items={itemsSex}
-                        setOpen={setOpen}
-                        setValue={setValue}
-                        setItems={setItems}
-                        style={{flex:1}}
-                        listItemContainer={{
-                        height: 50
-                        }}
-                        dropDownContainerStyle={{
-                        backgroundColor: "#fff"
-                        }}
+                        setOpen={setOpenSex}
+                        setValue={setValueSex}
+                        setItems={setItemsSex}
+                        style={{height:'30%', backgroundColor:'#C4C4C4',}}
+                        placeholder="선택"
+                        closeAfterSelecting={true}
                         />
-                      
-                <View style={{flex:1, justifyContent:'center',}}>
-                    <Text>나이</Text>
-                   
-                </View>
-                <View style={{flex:1, justifyContent:'center', }}>
-                    <Text>직업</Text>
-                    {/* <DropDownPicker
-            open={openJob}
-            value={valueJob}
-            items={itemsJob}
-            setOpen={setOpen}
-            setValue={setValue}
-            setItems={setItems}
-          /> */}
-                </View>
+
+                {/* <View style={{flex:1}}> */}
+                    {/* <View style={stylesForTutorial.textPart}>  */}
+                        <Text style={{fontSize:16}}>나이</Text>
+                    {/* </View> */}
+                    {/* <View style={stylesForTutorial.selectPart}>
+                     </View> */}
+                {/* </View> */}
+                        <DropDownPicker
+                            open={openAge}
+                            // onOpen={onAgeOpen}
+                            value={valueAge}
+                            items={itemsAge}
+                            setOpen={setOpenAge}
+                            setValue={setValueAge}
+                            setItems={setItemsAge}
+                            style={{height:'30%', backgroundColor:'#C4C4C4',}}
+                            placeholder="선택"
+                            closeAfterSelecting={true}
+                        />
+                {/* <View style={{flex:1}}> */}
+                    {/* <View style={stylesForTutorial.textPart}>  */}
+                        <Text style={{fontSize:17}}>직업</Text>
+                    {/* </View> */}
+                    {/* <View style={stylesForTutorial.selectPart}>
+                     </View> */}
+                {/* </View> */}
+                        <DropDownPicker
+                            open={openJob}
+                            // onOpen={onJobOpen}
+                            value={valueJob}
+                            items={itemsJob}
+                            setOpen={setOpenJob}
+                            setValue={setValueJob}
+                            setItems={setItemsJob}
+                            style={{height:'30%', backgroundColor:'#C4C4C4'}}
+                            placeholder="선택"
+                            closeAfterSelecting={true}
+                        />
             </View>
             )
             
@@ -153,11 +185,11 @@ const TutorialPage=()=>{
     function changePage() {
         if(isPressed==3){
             navigation.push('키워드설명창');
-            sendValue(valueSex);
+            sendValue(valueSex, valueAge, valueJob);
         }
     }
 
-    async function sendValue(valueSex){
+    async function sendValue(valueSex, valueAge, valueJob){
         try{
             await fetch('http://3.36.248.216:8080/users',{
               method: 'post',
@@ -169,8 +201,8 @@ const TutorialPage=()=>{
               body: JSON.stringify({
                   "username": "why did it happen",
                   "email": "new@gmail.com", 
-                  "age": "thirties", 
-                  "job": "stayAtHome", 
+                  "age": valueAge, 
+                  "job": valueJob, 
                   "sex": valueSex
               })
             })
@@ -189,52 +221,6 @@ const TutorialPage=()=>{
     }
     
 }
-
-    // function DropdownSex() {
-
-    //     return (
-    //       <DropDownPicker
-    //         open={openSex}
-    //         value={valueSex}
-    //         items={itemsSex}
-    //         setOpen={setOpen}
-    //         setValue={setValue}
-    //         setItems={setItems}
-    //       />
-    //     );
-    //   }
-      
-    //   function DropdownAge(){
-
-      
-    //     return (
-    //       <DropDownPicker
-    //         open={openAge}
-    //         value={valueAge}
-    //         items={itemsAge}
-    //         setOpen={setOpen}
-    //         setValue={setValue}
-    //         setItems={setItems}
-    //       />
-    //     );
-    //   }
-    //   function DropdownJob(){
-
-      
-    //     return (
-    //       <DropDownPicker
-    //         open={openJob}
-    //         value={valueJob}
-    //         items={itemsJob}
-    //         setOpen={setOpen}
-    //         setValue={setValue}
-    //         setItems={setItems}
-    //       />
-    //     );
-    //   }
-
-
-
 
 const stylesForTutorial = StyleSheet.create({
     wrap:{
@@ -265,21 +251,34 @@ const stylesForTutorial = StyleSheet.create({
         alignItems:'center',
         backgroundColor: 'white',
         paddingTop:40,
-  
     },
         text:{
             textAlign:'center',
-            fontSize:15,
+            fontSize:15.5,
             marginTop:7,
             textAlignVertical:'center',
             //fontFamily:Fonts.NanumBarunGothic,
         },
+        textPart:{
+            // flex:1,
+            height:'30%',
+            justifyContent:'center',
+            // backgroundColor:'blue',
+        },
+        selectPart:{
+            flex:1,
+            marginBottom:'6%',
+            zIndex:0
+            // backgroundColor:'green',
+        },
+
     buttonContainer:{
         width:314,
         height:90,
         backgroundColor:'white',
         alignItems:'center',
-        justifyContent:'center'
+        justifyContent:'center',
+      
     },
     select:{
         height:30,
@@ -287,6 +286,5 @@ const stylesForTutorial = StyleSheet.create({
        // backgroundColor:'yellow',
     }
 });
-
 
 export default TutorialPage;
